@@ -45,14 +45,15 @@ class ModelEmbeddings(nn.Module):
         ###            `vocab.tgt` for target
         ###     2. You can get the length of a specific vocabulary by running:
         ###             `len(vocab.<specific_vocabulary>)`
-        ###     3. Remember to include the padding token for the specific vocabulary
+        ###     3. Remember to include the padding to   ken for the specific vocabulary
         ###        when creating your Embedding.
         ###
         ### Use the following docs to properly initialize these variables:
         ###     Embedding Layer:
         ###         https://pytorch.org/docs/stable/nn.html#torch.nn.Embedding
         
-
+        self.source = nn.Embedding(num_embeddings=len(vocab.src), embedding_dim=embed_size, padding_idx=src_pad_token_idx)
+        self.target = nn.Embedding(num_embeddings=len(vocab.tgt), embedding_dim=embed_size, padding_idx=tgt_pad_token_idx)
 
         ### END YOUR CODE
 
